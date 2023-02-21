@@ -34,9 +34,9 @@ public class TodoItemController {
         todoItemService.setTodoItemAsDone(id);
     }
 
-    @PutMapping("/todoItem1/{id}")
-    public void updateTodoItem(@PathVariable("id") Long id, @RequestBody TodoItem todoItem) throws SQLException {
-        todoItemService.updateTodoItem(id, todoItem);
+    @PutMapping("/todoItem1")
+    public void updateTodoItem(@RequestBody TodoItem todoItem) throws SQLException {
+        todoItemService.updateTodoItem(todoItem);
     }
 
     @DeleteMapping("/todoItem/{id}")

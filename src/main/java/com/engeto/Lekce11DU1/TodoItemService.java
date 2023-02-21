@@ -43,10 +43,10 @@ public class TodoItemService {
         statement.executeUpdate("UPDATE todoList.todoItem SET isCompleted = true WHERE id = " + id);
     }
 
-    public void updateTodoItem(Long id, TodoItem todoItem) throws SQLException {
+    public void updateTodoItem(TodoItem todoItem) throws SQLException {
+        Long id = todoItem.getId();
         Statement statement = connection.createStatement();
-        statement.executeUpdate("UPDATE todoList.todoItem SET text = '" + todoItem.getItem() + "' WHERE id = " + id);
-        statement.executeUpdate("UPDATE todoList.todoItem SET isCompleted = " + todoItem.getDone() + " WHERE id = " + id);
+        statement.executeUpdate("UPDATE todoList.todoItem SET text = '" + todoItem.getItem() + "', isCompleted = " + todoItem.getDone() + " WHERE id = " + id);
     }
 
     public void deleteTodoItem(Long id) throws SQLException {
